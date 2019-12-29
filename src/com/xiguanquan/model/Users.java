@@ -8,8 +8,9 @@ public class Users implements java.io.Serializable {
 
 	// Fields
 
-	private String usernid;
+	private static Integer usernid;
 	private String userName;
+	private String upassword;
 	private String nickname;
 	private String occupation;
 
@@ -19,26 +20,21 @@ public class Users implements java.io.Serializable {
 	public Users() {
 	}
 
-	/** minimal constructor */
-	public Users(String usernid) {
-		this.usernid = usernid;
-	}
-
 	/** full constructor */
-	public Users(String usernid, String userName, String nickname, String occupation) {
-		this.usernid = usernid;
+	public Users(String userName, String upassword, String nickname, String occupation) {
 		this.userName = userName;
+		this.upassword = upassword;
 		this.nickname = nickname;
 		this.occupation = occupation;
 	}
 
 	// Property accessors
 
-	public String getUsernid() {
+	public Integer getUsernid() {
 		return this.usernid;
 	}
 
-	public void setUsernid(String usernid) {
+	public void setUsernid(Integer usernid) {
 		this.usernid = usernid;
 	}
 
@@ -48,6 +44,14 @@ public class Users implements java.io.Serializable {
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+	public String getUpassword() {
+		return this.upassword;
+	}
+
+	public void setUpassword(String upassword) {
+		this.upassword = upassword;
 	}
 
 	public String getNickname() {

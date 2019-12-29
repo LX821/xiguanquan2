@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>   
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,7 +11,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>圈子</title>
+    
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -18,11 +21,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-  </head>
-  
-  <body>
-  <a href="loginu.jsp">登录</a> 
-  <a href="reguster.jsp">注册</a>
 
+
+  </head>
+  <body>
+  <a href="/xiguanquan6/xiguanquan/circle_showCircle?usernid=${usernid}">返回主页</a>
+     <s:form>
+       <table>
+         <c:forEach var="acircle" items="${acircleList}">
+          <tr>
+            <td>标题：<a href="xiguanquan/circle_showDetail?circleid=${acircle.circleid}"><c:out value="${acircle.ctitle}"></c:out></a></td>
+          </tr>
+        </c:forEach>
+      </table>
+    </s:form>
   </body>
 </html>

@@ -1,24 +1,31 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE struts PUBLIC
-    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
-    "http://struts.apache.org/dtds/struts-2.0.dtd">
-
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-     
-     <constant name="struts.i18n.encoding" value="utf-8"/>
+	<constant name="struts.i18n.encoding" value="utf-8"/>
      <constant name="struts.devMode" value="true" />
      <!--Struts2中Action对象的创建交给spring完成-->
      <constant name="struts.objectFactory" value="spring" />   
        
-          
-	 <package name="user" namespace="/user" extends="struts-default">
-	        <action name="user_*" class="UserAction" method="{1}">
-	        	<result name="show_view">/main.jsp</result>
-	        	<result name="message">/message.jsp</result>
-	          
-	        </action>  
-	 </package>
-	 
-        
-	 
-</struts>
+     <package name="xiuguanquan" namespace="/xiguanquan" extends="struts-default">
+            <action name="user_*" class="com.xiguanquan.action.UserAction" method="{1}">     
+                <result name="success">/success.jsp</result>
+                <result name="circlelist">/circle_list.jsp</result>
+                <result name="input">/user_list.jsp</result>
+                <param name="param1">${users.usernid}</param>
+            </action>
+            <action name="circle_*" class="com.xiguanquan.action.circleAction" method="{1}">     
+                <result name="circlelist">/circle_list.jsp</result>
+                <result name="successaddc">/successaddc.jsp</result>
+                <result name="detail">/circledetail.jsp</result>
+                <result name="attended">/successattend.jsp</result>
+                <result name="delete">/successdele.jsp</result>
+                <result name="edit_view">/edit.jsp</result>
+                <result name="edit_message">/successupdatec.jsp</result>
+                <result name="acirclelist">/acirclelist.jsp</result>
+            </action>
+            <action name="trend_*" class="com.xiguanquan.action.TrendAction" method="{1}">     
+                <result name="trendlist">/trend_list.jsp</result>
+                <result name="successaddt">/successaddc.jsp</result>
+            </action>
+     </package>
+</struts>     

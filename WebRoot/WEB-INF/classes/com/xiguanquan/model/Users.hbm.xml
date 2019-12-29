@@ -6,12 +6,15 @@
 -->
 <hibernate-mapping>
     <class name="com.xiguanquan.model.Users" table="users" catalog="xiguanquan">
-        <id name="usernid" type="java.lang.String">
-            <column name="Usernid" length="8" />
-            <generator class="assigned" />
+        <id name="usernid" type="java.lang.Integer">
+            <column name="Usernid" />
+            <generator class="native" />
         </id>
         <property name="userName" type="java.lang.String">
             <column name="UserName" length="20" />
+        </property>
+        <property name="upassword" type="java.lang.String">
+            <column name="upassword" length="10" />
         </property>
         <property name="nickname" type="java.lang.String">
             <column name="Nickname" length="20" />

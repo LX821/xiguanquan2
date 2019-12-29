@@ -1,5 +1,6 @@
 package com.xiguanquan.dao;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class UserDao {
 	public void DeleteUser(String usernid) throws Exception{
 		Session s=factory.getCurrentSession();
 		Object u= s.load(Users.class, usernid);
-		s.delete(usernid);
+		s.delete(u);
 	}
 	public void UpdateUser(Users u) throws Exception{
 		Session s=factory.getCurrentSession();
@@ -39,16 +40,22 @@ public class UserDao {
 		return (ArrayList<Users>) userList;
 	}
 	public Users GetUserid(String usernid){
-		Session u=factory.getCurrentSession();
-		Users user=(Users)u.get(Users.class,usernid);
+		Session s=factory.getCurrentSession();
+		Users user=(Users)s.get(Users.class,usernid);
 		return user;
 	}
 	public ArrayList<Users> QueryUsersInfo(String userName){
 		Session u=factory.getCurrentSession();
-		String hql="From Users u where 1=1";
-		if(!userName.equals("")) hql=hql+"and food.foodname like '%"+userName+"%'";
-		Query q=u.createQuery(hql);
-		List userList =q.list();
+		List<Users> userList;
+		
+		String hql="From Users users where 1=1";
+		if(!userName.equals("")) {
+			hql=hql+"and users.userName like '%"+userName+"%'";
+			Query q=u.createQuery(hql);
+			userList =q.list();
+		}else{
+			userList = null;
+		}
 		return (ArrayList<Users>) userList;
 	}
 

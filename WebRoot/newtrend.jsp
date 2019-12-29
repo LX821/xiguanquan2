@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>   
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,7 +10,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>My JSP 'newcircle.jsp' starting page</title>
+    
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -18,11 +20,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+
   </head>
   
   <body>
-  <a href="loginu.jsp">登录</a> 
-  <a href="reguster.jsp">注册</a>
-
+    <h1 align="center">创建动态</h1>   
+    <hr>   
+   <div align="center">
+     <s:form action="xiguanquan/trend_addTrend" method="post">  
+       <s:textfield name="trend.tword" label="内容：" style="width:200px;height:200px"></s:textfield>
+       <s:submit value="提交"></s:submit>  
+   </s:form>   
+   </div>   
   </body>
 </html>
