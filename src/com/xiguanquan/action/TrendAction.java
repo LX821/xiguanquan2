@@ -47,11 +47,13 @@ public class TrendAction extends ActionSupport{
 		ActionContext.getContext().getSession().put("usernid", getUsernid());
 		return "successaddt";
 	}
-	public String deleteCircle() throws Exception{
+	public String deletetrend() throws Exception{
 		trendDao.DeleteTrend(trendid);
 		return "delete";
 	}
-	public String showtrendlist(){
+	public String showTrend(){
+		trendList = trendDao.QueryAllTrend();
+		ActionContext.getContext().getValueStack().set("trendList", trendList);
 		return "trendlist";
 	}
 }

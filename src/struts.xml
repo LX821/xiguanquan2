@@ -22,9 +22,10 @@
                 <result name="edit_view">/edit.jsp</result>
                 <result name="edit_message">/successupdatec.jsp</result>
                 <result name="acirclelist">/acirclelist.jsp</result>
+                <result name="trendlist">/trendlist.jsp</result>
             </action>
             <action name="trend_*" class="com.xiguanquan.action.TrendAction" method="{1}">     
-                <result name="trendlist">/trend_list.jsp</result>
+                <result name="trendlist">/trendlist.jsp</result>
                 <result name="successaddt">/successaddc.jsp</result>
             </action>
      </package>
